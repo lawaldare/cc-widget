@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CardNameValidators } from '../validators/card-name-validator';
 import { ExpiryDateValidators } from '../validators/expiry-date-validator';
+import { CreditCardValidators } from '../validators/credit-card-validator';
+import { CVCValidators } from '../validators/cvc-validator';
 
 @Component({
   selector: 'cm-cc-widget',
@@ -11,10 +13,10 @@ import { ExpiryDateValidators } from '../validators/expiry-date-validator';
 export class CcWidgetComponent {
 
   creditCardForm = new FormGroup({
-    cardHolder: new FormControl('', [Validators.required, CardNameValidators()]),
-    cardNumber: new FormControl('', Validators.required),
-    expiryDate: new FormControl('', [Validators.required, ExpiryDateValidators()]),
-    cvc: new FormControl('', Validators.required)
+    cardHolder: new FormControl('', [CardNameValidators()]),
+    cardNumber: new FormControl('', [CreditCardValidators()]),
+    expiryDate: new FormControl('', [ExpiryDateValidators()]),
+    cvc: new FormControl('', [CVCValidators()])
   })
 
   onSubmit(){

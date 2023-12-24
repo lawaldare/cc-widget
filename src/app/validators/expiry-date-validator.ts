@@ -1,5 +1,8 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
+import * as Payment from 'payment';
+
+
 export function ExpiryDateValidators(): ValidatorFn {
     return (control: AbstractControl) : ValidationErrors | null => {
 			 
@@ -11,27 +14,9 @@ export function ExpiryDateValidators(): ValidatorFn {
 			const month = value.split('/')[0];
 			const year = value.split('/')[1];
 
-			const currentMonth = new Date().getMonth() + 1;
-			const currentYear = new Date().getFullYear();
+			const error = Payment.fns.validateCardExpiry(month, year);
 
-			if(!year){
-				return null;
-			}
-
-			if(year.length < 4){
-				return { invalidDate: true }
-			}
-
-
-			if(Number(year) < currentYear){
-				return { invalidDate: true }
-			}
-
-
-			if(Number(month) < currentMonth && Number(year) === currentYear){
-				return { invalidDate: true }
-			} 
-			return null
+			return error ? null : { invalidDate: true };
 
     };
 }

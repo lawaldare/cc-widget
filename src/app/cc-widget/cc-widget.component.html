@@ -3,26 +3,30 @@
 		<label for="" class="form__field__label">Card holder</label>
 		<input type="text" class="form__field__control" formControlName="cardHolder">
 		<ng-container *ngIf="creditCardForm.get('cardHolder')?.touched && creditCardForm.get('cardHolder')?.dirty">
-			<p *ngIf="creditCardForm.get('cardHolder')?.errors?.['required']">Field is required</p>
 			<p *ngIf="creditCardForm.get('cardHolder')?.errors?.['invalid']">Card holder name is invalid</p>
 		</ng-container>
 	</div>
 	<div class="form__field">
 		<label for="" class="form__field__label">Card number</label>
 		<input type="text" class="form__field__control" formControlName="cardNumber" CardNumber>
+		<ng-container *ngIf="creditCardForm.get('cardNumber')?.touched && creditCardForm.get('cardNumber')?.dirty">
+			<p *ngIf="creditCardForm.get('cardNumber')?.errors?.['invalidCreditCardNumber']">Invalid card number</p>
+		</ng-container>
 	</div>
 	<div class="form--row">
 		<div class="form__field">
 			<label for="" class="form__field__label">Expiry date</label>
 			<input type="text" placeholder="MM/YYYY" class="form__field__control" formControlName="expiryDate" ExpiryDate>
 			<ng-container *ngIf="creditCardForm.get('expiryDate')?.touched && creditCardForm.get('expiryDate')?.dirty">
-				<p *ngIf="creditCardForm.get('expiryDate')?.errors?.['required']">Field is required</p>
 				<p *ngIf="creditCardForm.get('expiryDate')?.errors?.['invalidDate']">Expiry date is invalid</p>
 			</ng-container>
 		</div>
 		<div class="form__field">
 			<label for="" class="form__field__label">CVC</label>
 			<input type="text" class="form__field__control" formControlName="cvc">
+			<ng-container *ngIf="creditCardForm.get('cvc')?.touched && creditCardForm.get('cvc')?.dirty">
+				<p *ngIf="creditCardForm.get('cvc')?.errors?.['invalidCVC']">Invalid CVC</p>
+			</ng-container>
 		</div>
 	</div>
 	<button [disabled]="creditCardForm.invalid">Deposit</button>

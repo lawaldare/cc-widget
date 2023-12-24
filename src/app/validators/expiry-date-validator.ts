@@ -8,9 +8,6 @@ export function ExpiryDateValidators(): ValidatorFn {
 			 
       const value = control.value;
 
-			 if (!value) {
-        return null;
-      }
 			const month = value.split('/')[0];
 			const year = value.split('/')[1];
 

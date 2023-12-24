@@ -4,14 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CcWidgetComponent } from './cc-widget/cc-widget.component';
 import { createCustomElement } from '@angular/elements';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CardNumberDirective } from './directives/card-number.directive';
+import { ExpiryDateDirective } from './directives/expiry-date.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CcWidgetComponent
+    CcWidgetComponent,
+    CardNumberDirective,
+    ExpiryDateDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

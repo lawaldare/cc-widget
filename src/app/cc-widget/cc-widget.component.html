@@ -1,1 +1,29 @@
-<p>cc-widget works!</p>
+<form class="form" [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+	<div class="form__field">
+		<label for="" class="form__field__label">Card holder</label>
+		<input type="text" class="form__field__control" formControlName="cardHolder">
+		<ng-container *ngIf="creditCardForm.get('cardHolder')?.touched && creditCardForm.get('cardHolder')?.dirty">
+			<p *ngIf="creditCardForm.get('cardHolder')?.errors?.['required']">Field is required</p>
+			<p *ngIf="creditCardForm.get('cardHolder')?.errors?.['invalid']">Card holder name is invalid</p>
+		</ng-container>
+	</div>
+	<div class="form__field">
+		<label for="" class="form__field__label">Card number</label>
+		<input type="text" class="form__field__control" formControlName="cardNumber" CardNumber>
+	</div>
+	<div class="form--row">
+		<div class="form__field">
+			<label for="" class="form__field__label">Expiry date</label>
+			<input type="text" placeholder="MM/YYYY" class="form__field__control" formControlName="expiryDate" ExpiryDate>
+			<ng-container *ngIf="creditCardForm.get('expiryDate')?.touched && creditCardForm.get('expiryDate')?.dirty">
+				<p *ngIf="creditCardForm.get('expiryDate')?.errors?.['required']">Field is required</p>
+				<p *ngIf="creditCardForm.get('expiryDate')?.errors?.['invalidDate']">Expiry date is invalid</p>
+			</ng-container>
+		</div>
+		<div class="form__field">
+			<label for="" class="form__field__label">CVC</label>
+			<input type="text" class="form__field__control" formControlName="cvc">
+		</div>
+	</div>
+	<button [disabled]="creditCardForm.invalid">Deposit</button>
+</form>

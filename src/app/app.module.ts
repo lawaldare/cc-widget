@@ -21,15 +21,10 @@ import { ExpiryDateDirective } from './directives/expiry-date.directive';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  // entryComponents: []
 })
 export class AppModule {
   constructor(private injector: Injector) {
-    
-  }
-
-  ngDoBootstrap(){
-    const myElement = createCustomElement(CcWidgetComponent, { injector:this.injector });
+    const myElement = createCustomElement(CcWidgetComponent, { injector });
     customElements.define("cm-credit-card-widget", myElement);
   }
 }

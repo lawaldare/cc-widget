@@ -1,16 +1,14 @@
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { CcWidgetComponent } from './cc-widget/cc-widget.component';
+import { CcWidgetComponent } from './cc-widget.component';
 import { createCustomElement } from '@angular/elements';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CardNumberDirective } from './directives/card-number.directive';
-import { ExpiryDateDirective } from './directives/expiry-date.directive';
+import { CardNumberDirective } from '../directives/card-number.directive';
+import { ExpiryDateDirective } from '../directives/expiry-date.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
     CcWidgetComponent,
     CardNumberDirective,
     ExpiryDateDirective
@@ -22,7 +20,7 @@ import { ExpiryDateDirective } from './directives/expiry-date.directive';
   providers: [],
   bootstrap: [CcWidgetComponent],
 })
-export class AppModule {
+export class CCWidgetModule {
   constructor(private injector: Injector) {
     const myElement = createCustomElement(CcWidgetComponent, { injector });
     customElements.define("cm-credit-card-widget", myElement);

@@ -1,7 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
+import { CCWidgetModule } from './app/cc-widget/cc-widget.module';
 
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic().bootstrapModule(CCWidgetModule)
   .catch(err => console.error(err));

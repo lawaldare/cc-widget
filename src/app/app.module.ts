@@ -20,11 +20,12 @@ import { ExpiryDateDirective } from './directives/expiry-date.directive';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // entryComponents: []
 })
 export class AppModule {
   constructor(private injector: Injector) {
-    const myElement = createCustomElement(AppComponent, { injector });
+    const myElement = createCustomElement(CcWidgetComponent, { injector });
     customElements.define("cm-credit-card-widget", myElement);
   }
 }

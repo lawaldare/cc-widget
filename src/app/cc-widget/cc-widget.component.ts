@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CardNameValidators } from '../validators/card-name-validator';
 import { ExpiryDateValidators } from '../validators/expiry-date-validator';
 import { CreditCardValidators } from '../validators/credit-card-validator';
 import { CVCValidators } from '../validators/cvc-validator';
 
 @Component({
-  selector: 'cm-cc-widget',
+  selector: 'cm-credit-card-widget',
   templateUrl: './cc-widget.component.html',
   styleUrls: ['./cc-widget.component.scss']
 })

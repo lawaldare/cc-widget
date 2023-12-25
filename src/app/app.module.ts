@@ -20,7 +20,7 @@ import { ExpiryDateDirective } from './directives/expiry-date.directive';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [CcWidgetComponent],
 })
 export class AppModule {
   constructor(private injector: Injector) {

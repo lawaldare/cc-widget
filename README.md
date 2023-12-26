@@ -1,6 +1,6 @@
-# Credit Card Widget
+# Credit Card Widget (Web Component)
 
-This is an credit card widget form built with Angular.
+This is a credit card widget form built with Angular.
 
 ## Usage
 
